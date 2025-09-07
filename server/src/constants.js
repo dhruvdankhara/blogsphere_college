@@ -1,0 +1,15 @@
+export const DB_NAME = "blogsphere";
+
+export const UserGenderEnum = {
+  MALE: "MALE",
+  FEMALE: "FEMALE",
+  OTHER: "OTHER",
+};
+
+export const AvailableUserGender = Object.values(UserGenderEnum);
+
+export const cookieOption = {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+};
