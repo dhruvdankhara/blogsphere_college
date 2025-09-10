@@ -6,7 +6,8 @@ import { LuImage } from "react-icons/lu";
 import { v4 as uuidv4 } from "uuid";
 import { createPost, editPost } from "../api";
 import { Container } from "./index";
-import Editor from "./Editor";
+// Replaced markdown-only editor with RichEditor (WYSIWYG -> markdown)
+import RichEditor from "./RichEditor.jsx";
 
 function BlogForm({ blogData }) {
   const isEdit = blogData ? true : false;
@@ -92,19 +93,21 @@ function BlogForm({ blogData }) {
     <div className="my-10">
       <Container>
         <div className="mx-auto max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold">Create a New Blog Post</h1>
+          <h1 className="mb-4 text-3xl font-bold text-gray-100">
+            {isEdit ? "Edit Blog Post" : "Create a New Blog Post"}
+          </h1>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-1">
               <label
                 htmlFor={"title"}
-                className="text-base font-medium capitalize text-gray-900"
+                className="text-base font-medium capitalize text-gray-300"
               >
                 Title
               </label>
               <input
                 type={"text"}
                 placeholder="Enter your blog post title"
-                className={`w-full rounded-xl border border-gray-300 bg-gray-50 px-3 py-2.5 text-gray-900`}
+                className="w-full rounded-xl border border-gray-600 bg-gray-700/60 px-3 py-2.5 text-gray-100 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
                 id={"title"}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -115,17 +118,17 @@ function BlogForm({ blogData }) {
             <div className="flex flex-col gap-1">
               <label
                 htmlFor={"content"}
-                className="text-base font-medium capitalize text-gray-900"
+                className="text-base font-medium capitalize text-gray-300"
               >
-                content
+                Content
               </label>
-              <Editor id={"content"} value={content} setValue={setContent} />
+              <RichEditor value={content} setValue={setContent} />
             </div>
 
             <div>
               <label
                 htmlFor="featureImage"
-                className="text-base font-medium capitalize text-gray-900"
+                className="text-base font-medium capitalize text-gray-300"
               >
                 Feature Image
               </label>
@@ -137,7 +140,7 @@ function BlogForm({ blogData }) {
                       fileInputRef.current.click();
                     }
                   }}
-                  className="flex w-full items-center justify-center rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition-all duration-300 hover:bg-slate-200/70 md:text-base"
+                  className="flex w-full items-center justify-center rounded-xl border border-gray-600 bg-gray-700/60 px-5 py-2 text-sm font-semibold text-gray-100 shadow-sm transition-all duration-300 hover:bg-gray-700 md:text-base"
                 >
                   <LuImage className="mr-2 h-4 w-4" />
                   {featureImage ? "Change Image" : "Upload Image"}
@@ -152,7 +155,7 @@ function BlogForm({ blogData }) {
                         fileInputRef.current.value = "";
                       }
                     }}
-                    className="flex items-center justify-center rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition-all duration-300 hover:bg-slate-200/70 md:text-base"
+                    className="flex items-center justify-center rounded-xl border border-gray-600 bg-gray-700/60 px-5 py-2 text-sm font-semibold text-gray-100 shadow-sm transition-all duration-300 hover:bg-gray-700 md:text-base"
                   >
                     Remove
                   </button>
@@ -167,21 +170,22 @@ function BlogForm({ blogData }) {
                 className="hidden"
               />
               {featureImage && (
-                <div className="mt-4 rounded-xl border-2 px-5 py-3">
-                  <p className="text-muted-foreground mt-2 text-sm">
-                    Selected file: {featureImage.name}
+                <div className="mt-4 rounded-xl border border-gray-700/60 bg-gray-800/60 px-5 py-3">
+                  <p className="mt-2 text-sm text-gray-400">
+                    Selected file:{" "}
+                    <span className="text-gray-200">{featureImage.name}</span>
                   </p>
                   <img
-                    className="mx-auto aspect-video h-96 w-5/6 rounded-lg bg-cover object-cover"
+                    className="mx-auto aspect-video h-96 w-5/6 rounded-lg object-cover ring-1 ring-gray-700/60"
                     src={URL.createObjectURL(featureImage)}
                   />
                 </div>
               )}
 
               {blogData && !featureImage && (
-                <div className="mt-4 rounded-xl border-2 px-5 py-3">
+                <div className="mt-4 rounded-xl border border-gray-700/60 bg-gray-800/60 px-5 py-3">
                   <img
-                    className="mx-auto aspect-video h-96 w-5/6 rounded-lg bg-cover object-cover"
+                    className="mx-auto aspect-video h-96 w-5/6 rounded-lg object-cover ring-1 ring-gray-700/60"
                     src={blogData.featureImage}
                   />
                 </div>
@@ -190,11 +194,11 @@ function BlogForm({ blogData }) {
 
             <button
               type="submit"
-              className="flex w-full items-center justify-center rounded-xl bg-zinc-800 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-zinc-900 md:text-base"
+              className="flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 md:text-base"
               disabled={loading}
             >
               {loading ? (
-                <span className="inline-block size-6 animate-spin rounded-full border-4 border-e-slate-700"></span>
+                <span className="inline-block size-6 animate-spin rounded-full border-4 border-transparent border-t-white"></span>
               ) : isEdit ? (
                 "Update Post"
               ) : (

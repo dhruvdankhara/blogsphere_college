@@ -2,12 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply border-gray-700;
+  }
+
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
 h1 {
   font-size: 30px;
   font-weight: 500;
+  @apply text-gray-100;
 }
 
 h3 {
   font-size: 20px;
   font-weight: 500;
+  @apply text-gray-100;
+}
+
+/* ===== Editor (Tiptap / ProseMirror) Styling ===== */
+.ProseMirror {
+  @apply leading-relaxed selection:bg-blue-600/40 selection:text-blue-50;
+}
+
+.ProseMirror p {
+  @apply mb-4;
+}
+
+.ProseMirror blockquote {
+  @apply my-4 rounded-r-xl border-l-4 border-blue-500/60 bg-gray-800/60 pl-4 italic text-gray-300;
+}
+
+/* Inline code */
+.ProseMirror code {
+  @apply rounded bg-gray-800/70 px-1.5 py-0.5 font-mono text-sm text-pink-300;
+}
+/* Code block */
+.ProseMirror pre {
+  @apply relative my-5 overflow-x-auto rounded-xl border border-gray-700/60 bg-gray-900/80 p-4 font-mono text-sm leading-6;
+}
+.ProseMirror pre code {
+  @apply bg-transparent p-0 text-blue-300; /* override inline code styles inside block */
+}
+
+.ProseMirror ul {
+  @apply my-4 list-disc space-y-1 pl-6;
+}
+.ProseMirror ol {
+  @apply my-4 list-decimal space-y-1 pl-6;
+}
+.ProseMirror li > p {
+  @apply mb-1;
+}
+
+.ProseMirror a {
+  @apply font-medium text-blue-400 underline decoration-blue-500/40 underline-offset-4 transition-colors hover:text-blue-300;
+}
+
+/* Placeholder (from Placeholder extension) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none float-left h-0 text-gray-500;
+}
+
+/* Selected node highlight (e.g., image) */
+.ProseMirror .ProseMirror-selectednode {
+  @apply rounded-lg ring-2 ring-blue-500/60;
+}
+
+/* ===== Rendered Blog Post Styling ===== */
+.post-content {
+  @apply mt-8 space-y-5 text-lg leading-relaxed;
+}
+.post-content p {
+  @apply mb-4;
+}
+.post-content h1 {
+  @apply mb-4 mt-8 text-3xl font-bold text-gray-100;
+}
+.post-content h2 {
+  @apply mb-4 mt-8 text-2xl font-semibold text-gray-100;
+}
+.post-content h3 {
+  @apply mb-3 mt-6 text-xl font-semibold text-gray-100;
+}
+.post-content blockquote {
+  @apply my-6 rounded-r-xl border-l-4 border-blue-500/60 bg-gray-800/60 pl-4 italic text-gray-300;
+}
+.post-content ul {
+  @apply my-5 list-disc space-y-1 pl-6;
+}
+.post-content ol {
+  @apply my-5 list-decimal space-y-1 pl-6;
+}
+.post-content li > p {
+  @apply mb-1;
+}
+.post-content a {
+  @apply font-medium text-blue-400 underline decoration-blue-500/40 underline-offset-4 transition-colors hover:text-blue-300;
+}
+.post-content pre {
+  @apply my-6 overflow-x-auto rounded-xl border border-gray-700/60 bg-gray-900/80 p-4 font-mono text-sm leading-6;
+}
+.post-content code {
+  @apply rounded bg-gray-800/70 px-1.5 py-0.5 font-mono text-sm text-pink-300;
+}
+.post-content pre code {
+  @apply bg-transparent p-0 text-blue-300;
+}
+.post-content img {
+  @apply mx-auto my-6 max-w-full rounded-xl ring-1 ring-gray-700/60;
+}
+.post-content hr {
+  @apply my-10 border-gray-700/60;
 }

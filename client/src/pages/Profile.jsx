@@ -47,7 +47,7 @@ function Profile() {
     return (
       <div className="my-10">
         <Container>
-          <div className="rounded-2xl border-2 border-black p-5">
+          <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-5 text-red-300">
             <p className="text-center text-2xl font-bold">{error}</p>
           </div>
         </Container>
@@ -58,28 +58,36 @@ function Profile() {
   return (
     <div className="my-10">
       <Container>
-        <div className="rounded-2xl border-2 border-gray-300 p-5">
+        <div className="rounded-2xl border border-gray-700/60 bg-gray-800/60 p-5 backdrop-blur">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             <div>
-              <div className="sticky top-5 flex flex-col items-center gap-3 rounded-2xl border-black/70 bg-white p-5 md:items-start">
+              <div className="sticky top-5 flex flex-col items-center gap-3 rounded-2xl border border-gray-700/60 bg-gray-800/80 p-5 shadow-lg shadow-black/30 md:items-start">
                 <div>
                   <img
-                    className="h-24 w-24 rounded-full"
+                    className="h-24 w-24 rounded-full ring-2 ring-gray-600"
                     src={userData.avatar}
                     alt={userData.name}
                   />
                 </div>
                 <div className="flex flex-col items-center gap-1 md:items-start">
-                  <p className="text-2xl font-bold">{userData.name}</p>
-                  <p className="text-base">@{userData.username}</p>
+                  <p className="text-2xl font-bold text-gray-100">
+                    {userData.name}
+                  </p>
+                  <p className="text-base text-gray-400">
+                    @{userData.username}
+                  </p>
                 </div>
                 <div className="flex gap-2">
-                  <p>
-                    <span className="font-bold">{userData.followers} </span>
+                  <p className="text-gray-300">
+                    <span className="font-bold text-gray-100">
+                      {userData.followers}{" "}
+                    </span>
                     Followers
                   </p>
-                  <p>
-                    <span className="font-bold">{userData.following} </span>
+                  <p className="text-gray-300">
+                    <span className="font-bold text-gray-100">
+                      {userData.following}{" "}
+                    </span>
                     Following
                   </p>
                 </div>
@@ -99,8 +107,8 @@ function Profile() {
                     ))}
                   </div>
                 ) : (
-                  <div className="rounded-2xl border-2 border-black p-5">
-                    <p className="text-center text-3xl font-bold">
+                  <div className="rounded-2xl border border-gray-700/60 bg-gray-800/70 p-8">
+                    <p className="text-center text-3xl font-bold text-gray-300">
                       No Post Found
                     </p>
                   </div>

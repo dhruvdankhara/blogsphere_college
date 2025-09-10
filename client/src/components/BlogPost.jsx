@@ -82,16 +82,16 @@ function BlogPost({
     <div className="my-5">
       <div className="flex flex-col gap-8">
         {author._id == user._id && (
-          <div className="flex items-center gap-4 rounded-3xl border-2 border-black/50 p-4">
+          <div className="flex items-center gap-4 rounded-3xl border border-gray-700/60 bg-gray-800/60 p-4 shadow">
             <button
               onClick={() => navigate(`/blog/edit/${slug}`)}
-              className="rounded-xl bg-blue-700 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 md:text-base"
+              className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700 md:text-base"
             >
               Edit
             </button>
             <button
               onClick={handleDeletePost}
-              className="rounded-xl bg-red-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-900 md:text-base"
+              className="rounded-xl bg-red-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-700 md:text-base"
               disabled={deletingPost}
             >
               {deletingPost ? (
@@ -100,26 +100,28 @@ function BlogPost({
                 "Delete"
               )}
             </button>
-            <p className="text-slate-600">*This button only display to you.</p>
+            <p className="text-gray-400">*This button only displays to you.</p>
           </div>
         )}
 
         <div className="flex flex-col gap-4">
-          <h1 className="truncat text-wrap text-5xl font-bold">{title}</h1>
+          <h1 className="truncat text-wrap text-5xl font-bold text-gray-100">
+            {title}
+          </h1>
           <p className="flex items-center justify-start gap-2">
             <FaRegEye className="h-5 w-5" />{" "}
             <p>
               <span className="font-semibold">{visits}</span> views
             </p>
           </p>
-          <p className="text-lg font-semibold text-slate-800">
+          <p className="text-lg font-semibold text-gray-400">
             {formatDate(createdAt)}
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           <div className="col-span-1 md:col-span-2">
-            <div className="mb-5 flex border-b-2 border-t-2 border-slate-400">
+            <div className="mb-5 flex border-b border-t border-gray-700/60">
               <LikeBtn
                 _id={_id}
                 isLiked={isLiked}
@@ -128,55 +130,61 @@ function BlogPost({
               />
               <a href="#comments" className="flex gap-2 p-5">
                 <MdOutlineComment className="h-7 w-7" />
-                <p className="text-lg font-bold">{comments}</p>
+                <p className="text-lg font-bold text-gray-300">{comments}</p>
               </a>
             </div>
             <img
-              className="mx-auto aspect-video rounded-2xl object-cover"
+              className="mx-auto aspect-video rounded-2xl object-cover ring-1 ring-gray-700/60"
               src={featureImage}
               alt={title}
             />
-            <pre className="text-wrap font-sans text-lg">
+            <div className="post-content text-gray-300">
               {parse(marked.parse(content))}
-            </pre>
+            </div>
             <Comment
               {...{ title, featureImage, content, author, _id, slug, visits }}
             />
           </div>
 
           <div className="col-span-1">
-            <div className="flex flex-col gap-4 rounded-2xl border-2 border-black/50 bg-white p-5">
-              <p className="text-slate-700">Author</p>
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-700/60 bg-gray-800/70 p-5">
+              <p className="text-gray-400">Author</p>
               <Link
                 to={`/u/${author.username}`}
                 className="flex items-center gap-4"
               >
                 <img
-                  className="h-12 w-12 rounded-2xl object-cover"
+                  className="h-12 w-12 rounded-2xl object-cover ring-1 ring-gray-700/60"
                   src={author.avatar}
                   alt=""
                 />
                 <div>
-                  <p className="font-bold">{author.name}</p>
-                  <p className="font-light">@{author.username}</p>
+                  <p className="font-bold text-gray-100">{author.name}</p>
+                  <p className="font-light text-gray-400">@{author.username}</p>
                 </div>
               </Link>
               <div>
                 <div className="flex gap-5 text-center">
                   <p>
-                    <span className="font-bold">{author.posts}</span>
+                    <span className="font-bold text-gray-100">
+                      {author.posts}
+                    </span>
                     <br />
-                    Posts
+                    <span className="text-gray-400">Posts</span>
                   </p>
                   <p>
-                    <span className="font-bold">{author.followers}</span>
+                    <span className="font-bold text-gray-100">
+                      {author.followers}
+                    </span>
                     <br />
-                    Followers
+                    <span className="text-gray-400">Followers</span>
                   </p>
                   <p>
-                    <span className="font-bold">{author.following}</span>
+                    <span className="font-bold text-gray-100">
+                      {author.following}
+                    </span>
                     <br />
-                    Following
+                    <span className="text-gray-400">Following</span>
                   </p>
                 </div>
               </div>

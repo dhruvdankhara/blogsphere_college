@@ -17,16 +17,11 @@ const Search = () => {
   }, [query]);
 
   useEffect(() => {
-    if (!debouncedSearch) return;
-
+    if (!debouncedSearch.trim()) return;
     setLoading(true);
-    searchPost(query)
-      .then((response) => {
-        setPosts(response.data);
-      })
-      .catch((error) => {
-        console.log("🚀 ~ fetch posts ~ error:", error);
-      })
+    searchPost(debouncedSearch)
+      .then((response) => setPosts(response.data))
+      .catch((error) => console.log("search error:", error))
       .finally(() => setLoading(false));
   }, [debouncedSearch]);
 
@@ -54,48 +49,23 @@ const Search = () => {
 
           {loading ? (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <div className="flex h-full animate-pulse flex-col justify-between gap-5 rounded-3xl bg-neutral-200 p-5">
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 animate-pulse rounded-full bg-neutral-400/80"></div>
-
-                  <div className="h-10 w-40 animate-pulse rounded-md bg-neutral-400/80"></div>
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="flex h-full animate-pulse flex-col justify-between gap-5 rounded-3xl border border-gray-700/60 bg-gray-800/60 p-5"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 animate-pulse rounded-full bg-gray-600/60"></div>
+                    <div className="h-10 w-40 animate-pulse rounded-md bg-gray-600/60"></div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="h-10 w-full animate-pulse rounded-2xl bg-gray-600/60"></div>
+                    <div className="h-10 w-full animate-pulse rounded-2xl bg-gray-600/60"></div>
+                    <div className="h-10 w-full animate-pulse rounded-2xl bg-gray-600/60"></div>
+                  </div>
+                  <div className="h-52 w-full animate-pulse rounded-2xl bg-gray-600/60"></div>
                 </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                </div>
-                <div className="h-52 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-              </div>
-              <div className="flex h-full animate-pulse flex-col justify-between gap-5 rounded-3xl bg-neutral-200 p-5">
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 animate-pulse rounded-full bg-neutral-400/80"></div>
-
-                  <div className="h-10 w-40 animate-pulse rounded-md bg-neutral-400/80"></div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                </div>
-                <div className="h-52 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-              </div>
-              <div className="flex h-full animate-pulse flex-col justify-between gap-5 rounded-3xl bg-neutral-200 p-5">
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 animate-pulse rounded-full bg-neutral-400/80"></div>
-
-                  <div className="h-10 w-40 animate-pulse rounded-md bg-neutral-400/80"></div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                  <div className="h-10 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-                </div>
-                <div className="h-52 w-full animate-pulse rounded-2xl bg-neutral-400/80"></div>
-              </div>
+              ))}
             </div>
           ) : (
             <div className="grid h-full gap-4 md:grid-cols-2 lg:grid-cols-3">
