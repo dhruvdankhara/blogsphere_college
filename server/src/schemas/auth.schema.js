@@ -20,3 +20,15 @@ export const loginSchema = Yup.object()
       return value.username || value.email;
     }
   );
+
+export const changePasswordSchema = Yup.object().shape({
+  newPassword: Yup.string().min(8).required("new password is required."),
+  oldPassword: Yup.string().required("old passwor is required."),
+});
+
+export const updateUserSchema = Yup.object().shape({
+  name: Yup.string(),
+  email: Yup.string().email(),
+  username: Yup.string().lowercase(),
+  gender: Yup.string(),
+});

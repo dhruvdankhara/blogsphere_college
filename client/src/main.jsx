@@ -15,6 +15,7 @@ import CreateBlog from "./pages/CreateBlog.jsx";
 import EditPost from "./pages/EditPost.jsx";
 import Profile from "./pages/Profile.jsx";
 import Search from "./pages/Search.jsx";
+import EditUser from "./pages/EditUser.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/edit-user",
+        element: <EditUser />,
       },
     ],
   },

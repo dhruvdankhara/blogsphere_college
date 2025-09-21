@@ -33,10 +33,28 @@ export const getLogedInUser = async () => {
   return response.data;
 };
 
+export const changePassword = async ({ oldPassword, newPassword }) => {
+  const response = await apiClient.post("/auth/change-password", {
+    oldPassword,
+    newPassword,
+  });
+  return response.data;
+};
+
 // user profile calles
 
 export const getUserProfile = async (username) => {
   const response = await apiClient.get(`/user/${username}`);
+  return response.data;
+};
+
+export const updateUser = async (data) => {
+  const response = await apiClient.post("/auth/update-user", data);
+  return response.data;
+};
+
+export const updateAvatar = async (image) => {
+  const response = await apiClient.post("/auth/update-avatar", image);
   return response.data;
 };
 

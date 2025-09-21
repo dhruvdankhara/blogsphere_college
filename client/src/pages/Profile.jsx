@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getUserPosts, getUserProfile } from "../api/index";
 import {
   Container,
@@ -92,7 +92,15 @@ function Profile() {
                   </p>
                 </div>
                 {userData._id == stateUserData._id ? (
-                  <LogoutBtn />
+                  <div className="flex gap-3">
+                    <Link
+                      className="rounded-2xl bg-blue-600 px-5 py-2 font-semibold text-white transition-all duration-300 hover:bg-blue-900"
+                      to={`/edit-user`}
+                    >
+                      Edit
+                    </Link>
+                    <LogoutBtn />
+                  </div>
                 ) : (
                   <FollowBtn userData={userData} setUserData={setUserData} />
                 )}

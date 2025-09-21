@@ -13,6 +13,8 @@ import LikeBtn from "./LikeBtn.jsx";
 import Logo from "./Logo.jsx";
 import FollowBtn from "./FollowBtn.jsx";
 import Loader from "./Loader.jsx";
+import ChangePassword from "./ChangePassword.jsx";
+import UpdateAvatar from "./UpdateAvatar.jsx";
 
 export {
   Container,
@@ -30,4 +32,6 @@ export {
   LikeBtn,
   BlogForm,
   LogoutBtn,
+  ChangePassword,
+  UpdateAvatar,
 };
