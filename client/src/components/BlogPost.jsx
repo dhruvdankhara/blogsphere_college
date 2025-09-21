@@ -9,6 +9,7 @@ import { FaRegEye } from "react-icons/fa";
 import { MdOutlineComment } from "react-icons/md";
 import { Comment, LikeBtn } from "./index";
 import { deletePost, getUserProfile } from "../api/index";
+import {formatDate} from "../Hooks/FormateDate" 
 
 function BlogPost({
   title,
@@ -29,27 +30,7 @@ function BlogPost({
   const user = useSelector((state) => state.auth.data);
   const navigate = useNavigate();
 
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    const month = monthNames[date.getMonth()];
-    const year = date.getFullYear();
-    return `${day} ${month}, ${year}`;
-  }
+  
 
   const handleDeletePost = async () => {
     const deleteBlogToast = toast.loading("Deleting Blog Post...");

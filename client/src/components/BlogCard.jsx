@@ -1,28 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import {formatDate} from "../Hooks/FormateDate"
 
 function BlogCard({ _id, title, featureImage, author, createdAt, slug }) {
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const monthNames = [
-      "Posh",
-      "Magh",
-      "Falgun",
-      "Chaitra",
-      "Vaishakh",
-      "Jyeshtha",
-      "Ashadh",
-      "Shravan",
-      "Bhadrapad",
-      "Ashwin",
-      "Kartak",
-      "Magshar",
-    ];
-    const month = monthNames[date.getMonth()];
-    const year = date.getFullYear();
-    return `${day} ${month}, ${year}`;
-  }
+  
 
   return (
     <Link to={`/blog/${slug}`} key={_id}>
