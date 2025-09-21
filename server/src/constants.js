@@ -1,4 +1,4 @@
-export const DB_NAME = "blogsphere";
+export const DB_NAME = "blogsphere-college";
 
 export const UserGenderEnum = {
   MALE: "MALE",
