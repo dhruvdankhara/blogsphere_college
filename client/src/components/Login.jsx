@@ -11,8 +11,8 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // backend / general error
-  const [fieldErrors, setFieldErrors] = useState({}); // client side validation errors
+  const [error, setError] = useState(null);
+  const [fieldErrors, setFieldErrors] = useState({});
 
   const dispacth = useDispatch();
   const navigate = useNavigate();

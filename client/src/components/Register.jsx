@@ -13,8 +13,8 @@ function Register() {
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); // backend / general
-  const [fieldErrors, setFieldErrors] = useState({}); // client side
+  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
 
   const dispacth = useDispatch();
   const navigate = useNavigate();

@@ -6,7 +6,6 @@ import { LuImage } from "react-icons/lu";
 import { v4 as uuidv4 } from "uuid";
 import { createPost, editPost } from "../api";
 import { Container } from "./index";
-// Replaced markdown-only editor with RichEditor (WYSIWYG -> markdown)
 import RichEditor from "./RichEditor.jsx";
 
 function BlogForm({ blogData }) {

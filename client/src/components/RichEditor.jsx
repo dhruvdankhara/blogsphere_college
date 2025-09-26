@@ -7,16 +7,10 @@ import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import TurndownService from "turndown";
 import apiClient from "../api";
-
-// Convert incoming markdown -> HTML for editor (simple; rely on marked already in project)
 import { marked } from "marked";
 
 const turndown = new TurndownService({ headingStyle: "atx" });
 
-/**
- * @param {{value: string, setValue: (val:string)=>void}} props
- * RichEditor: WYSIWYG (Tiptap) that stores markdown externally.
- */
 export default function RichEditor({ value, setValue }) {
   const initialHTMLRef = useRef(null);
   const fileInputRef = useRef();
@@ -47,7 +41,6 @@ export default function RichEditor({ value, setValue }) {
       },
     },
     onUpdate({ editor }) {
-      // Debounced by RAF minimal; immediate convert
       const html = editor.getHTML();
       const md = turndown.turndown(html);
       setValue(md);

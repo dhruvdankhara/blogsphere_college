@@ -27,7 +27,6 @@ function EditUser() {
 
   const dispatch = useDispatch();
 
-  // Update userData when auth data changes
   useEffect(() => {
     if (authData) {
       setUserData(authData);
