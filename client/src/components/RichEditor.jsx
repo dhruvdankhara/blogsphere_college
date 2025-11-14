@@ -90,9 +90,8 @@ export default function RichEditor({ value, setValue }) {
   const activeBtn = "bg-blue-600/30 text-blue-300";
   const inactiveBtn = "bg-gray-700/60 text-gray-300 hover:bg-gray-600/60";
 
-  const BarButton = (
-    { cmd, isActive, label } // eslint-disable-line react/prop-types
-  ) => (
+  // eslint-disable-next-line react/prop-types
+  const BarButton = ({ cmd, isActive, label }) => (
     <button
       type="button"
       onClick={cmd}

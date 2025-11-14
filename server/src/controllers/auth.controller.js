@@ -123,7 +123,6 @@ export const resetPassword = async (req, res) => {
   if (user.resetTokenExpiration < Date.now()) {
     return res.status(400).json({ message: "Token expired" });
   }
-  // const hashedpassword = await bcrypt.hash(newPassword, 8);
   user.password = newPassword;
   user.resetToken = undefined;
   user.resetTokenExpiration = undefined;
@@ -139,10 +138,8 @@ export const updateUser = asyncHandler(async (req, res) => {
   const { user } = req;
   const { name, username, email, gender } = req.body;
 
-  // Validate request body
   await updateUserSchema.validate({ name, username, email, gender });
 
-  // Check if email or username is already taken
   const isEmailTaken = await User.findOne({ email });
   if (isEmailTaken && isEmailTaken._id.toString() !== user._id.toString()) {
     throw new ApiError(409, "Email already exists");
@@ -156,7 +153,6 @@ export const updateUser = asyncHandler(async (req, res) => {
     throw new ApiError(409, "Username already exists");
   }
 
-  // Update user details
   user.name = name || user.name;
   user.username = username || user.username;
   user.email = email || user.email;

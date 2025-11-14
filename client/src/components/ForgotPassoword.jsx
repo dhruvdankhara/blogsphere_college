@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await forgotPassword(email);
+      await forgotPassword(email);
       setStatus({
         type: "success",
         message: "If this email is registered, a reset link has been sent.",
