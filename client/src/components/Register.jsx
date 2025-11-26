@@ -71,28 +71,28 @@ function Register() {
   return (
     <div>
       <Container>
-        <section className="rounded-3xl border border-gray-700/50 bg-gray-800/40 backdrop-blur-sm">
+        <section className="rounded-3xl border border-gray-300 bg-gray-50/80 backdrop-blur-sm">
           <div className="flex min-h-screen items-center justify-center py-12">
-            <div className="w-full max-w-lg rounded-2xl border border-gray-700/60 bg-gray-800/80 shadow-2xl backdrop-blur-xl">
+            <div className="w-full max-w-lg rounded-2xl border border-gray-300 bg-white shadow-2xl backdrop-blur-xl">
               <div className="flex flex-col gap-8 p-12">
-                <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-100">
+                <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">
                   Create new account
                 </h1>
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor={"name"}
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       Name
                     </label>
                     <input
                       type="text"
                       placeholder="john doe"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.name
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id="name"
                       value={name}
@@ -109,7 +109,7 @@ function Register() {
                     {fieldErrors.name && (
                       <p
                         id="name-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.name}
                       </p>
@@ -118,17 +118,17 @@ function Register() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor={"email"}
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       Email
                     </label>
                     <input
                       type="email"
                       placeholder="example@mail.com"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.email
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id="email"
                       value={email}
@@ -145,7 +145,7 @@ function Register() {
                     {fieldErrors.email && (
                       <p
                         id="email-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.email}
                       </p>
@@ -154,17 +154,17 @@ function Register() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor={"username"}
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       Username
                     </label>
                     <input
                       type="text"
                       placeholder="name123"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.username
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id="username"
                       value={username}
@@ -184,7 +184,7 @@ function Register() {
                     {fieldErrors.username && (
                       <p
                         id="username-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.username}
                       </p>
@@ -193,17 +193,17 @@ function Register() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor={"password"}
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       Password
                     </label>
                     <input
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.password
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id="password"
                       value={password}
@@ -223,7 +223,7 @@ function Register() {
                     {fieldErrors.password && (
                       <p
                         id="password-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.password}
                       </p>
@@ -231,7 +231,7 @@ function Register() {
                   </div>
                   {error ? (
                     <div
-                      className="text-wrap rounded-xl border border-red-500/40 bg-red-500/15 px-5 py-3 text-sm text-red-300"
+                      className="text-wrap rounded-xl border border-red-300 bg-red-50 px-5 py-3 text-sm text-red-700"
                       role="alert"
                     >
                       {error}
@@ -248,11 +248,11 @@ function Register() {
                       "Register"
                     )}
                   </button>
-                  <p className="text-sm font-light text-gray-400">
+                  <p className="text-sm font-light text-gray-600">
                     Already have an account?{" "}
                     <Link
                       to="/login"
-                      className="font-medium text-blue-400 hover:text-blue-300 hover:underline"
+                      className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
                     >
                       Log in
                     </Link>

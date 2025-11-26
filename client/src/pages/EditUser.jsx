@@ -117,19 +117,19 @@ function EditUser() {
   return (
     <div className="my-10">
       <Container>
-        <h1 className="mb-6 text-3xl font-bold text-gray-100">Edit Profile</h1>
+        <h1 className="mb-6 text-3xl font-bold text-gray-900">Edit Profile</h1>
 
         {!authData ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
               <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-blue-500"></div>
-              <p className="text-gray-400">Loading profile...</p>
+              <p className="text-gray-600">Loading profile...</p>
             </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="row-span-2 rounded-xl border border-gray-700/60 bg-gray-800/60 p-7 backdrop-blur-md md:col-span-2">
-              <h2 className="mb-6 text-xl font-semibold text-gray-100">
+            <div className="row-span-2 rounded-xl border border-gray-200 bg-white p-7 shadow-sm md:col-span-2">
+              <h2 className="mb-6 text-xl font-semibold text-gray-900">
                 Personal Information
               </h2>
 
@@ -143,7 +143,7 @@ function EditUser() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="name"
-                    className="text-base font-medium text-gray-300"
+                    className="text-base font-medium text-gray-700"
                   >
                     Name
                   </label>
@@ -151,10 +151,10 @@ function EditUser() {
                     id="name"
                     type="text"
                     placeholder="John Doe"
-                    className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                    className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                       fieldErrors.name
                         ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                        : "border-gray-600"
+                        : "border-gray-300"
                     }`}
                     value={userData.name || ""}
                     onChange={(e) => {
@@ -179,7 +179,7 @@ function EditUser() {
                   {fieldErrors.name && (
                     <p
                       id="name-error"
-                      className="text-xs font-medium text-red-400"
+                      className="text-xs font-medium text-red-600"
                     >
                       {fieldErrors.name}
                     </p>
@@ -189,7 +189,7 @@ function EditUser() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="username"
-                    className="text-base font-medium text-gray-300"
+                    className="text-base font-medium text-gray-700"
                   >
                     Username
                   </label>
@@ -197,10 +197,10 @@ function EditUser() {
                     id="username"
                     type="text"
                     placeholder="johndoe"
-                    className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                    className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                       fieldErrors.username
                         ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                        : "border-gray-600"
+                        : "border-gray-300"
                     }`}
                     value={userData.username || ""}
                     onChange={(e) => {
@@ -225,7 +225,7 @@ function EditUser() {
                   {fieldErrors.username && (
                     <p
                       id="username-error"
-                      className="text-xs font-medium text-red-400"
+                      className="text-xs font-medium text-red-600"
                     >
                       {fieldErrors.username}
                     </p>
@@ -235,7 +235,7 @@ function EditUser() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="email"
-                    className="text-base font-medium text-gray-300"
+                    className="text-base font-medium text-gray-700"
                   >
                     Email
                   </label>
@@ -243,10 +243,10 @@ function EditUser() {
                     id="email"
                     type="email"
                     placeholder="john.doe@example.com"
-                    className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                    className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                       fieldErrors.email
                         ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                        : "border-gray-600"
+                        : "border-gray-300"
                     }`}
                     value={userData.email || ""}
                     onChange={(e) => {
@@ -271,7 +271,7 @@ function EditUser() {
                   {fieldErrors.email && (
                     <p
                       id="email-error"
-                      className="text-xs font-medium text-red-400"
+                      className="text-xs font-medium text-red-600"
                     >
                       {fieldErrors.email}
                     </p>
@@ -281,14 +281,14 @@ function EditUser() {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="gender"
-                    className="text-base font-medium text-gray-300"
+                    className="text-base font-medium text-gray-700"
                   >
                     Gender
                   </label>
                   <select
                     name="gender"
                     id="gender"
-                    className="w-full rounded-xl border border-gray-600 bg-gray-700/60 px-4 py-3 text-gray-100 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+                    className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
                     value={userData.gender || "MALE"}
                     onChange={(e) =>
                       setUserData({ ...userData, gender: e.target.value })
@@ -302,7 +302,7 @@ function EditUser() {
 
                 {isError && (
                   <div
-                    className="rounded-xl border border-red-500/40 bg-red-500/15 px-5 py-3 text-sm text-red-300"
+                    className="rounded-xl border border-red-300 bg-red-50 px-5 py-3 text-sm text-red-700"
                     role="alert"
                   >
                     {isError}
@@ -315,11 +315,11 @@ function EditUser() {
               </form>
             </div>
 
-            <div className="rounded-xl border border-gray-700/60 bg-gray-800/60 p-7 backdrop-blur-md md:col-span-1">
+            <div className="rounded-xl border border-gray-200 bg-white p-7 shadow-sm md:col-span-1">
               <UpdateAvatar userData={userData} setUserData={setUserData} />
             </div>
 
-            <div className="rounded-xl border border-gray-700/60 bg-gray-800/60 p-7 backdrop-blur-md md:col-span-1">
+            <div className="rounded-xl border border-gray-200 bg-white p-7 shadow-sm md:col-span-1">
               <ChangePassword />
             </div>
           </div>

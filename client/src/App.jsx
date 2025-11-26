@@ -29,7 +29,7 @@ function App() {
 
   return !loading ? (
     <>
-      <div className="flex min-h-screen flex-col bg-gray-900 pt-5">
+      <div className="flex min-h-screen flex-col bg-slate-100 pt-5">
         <Header />
         <Outlet />
       </div>

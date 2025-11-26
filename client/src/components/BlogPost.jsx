@@ -9,7 +9,7 @@ import { FaRegEye } from "react-icons/fa";
 import { MdOutlineComment } from "react-icons/md";
 import { Comment, LikeBtn } from "./index";
 import { deletePost, getUserProfile } from "../api/index";
-import {formatDate} from "../Hooks/FormateDate" 
+import { formatDate } from "../Hooks/FormateDate";
 
 function BlogPost({
   title,
@@ -29,8 +29,6 @@ function BlogPost({
 
   const user = useSelector((state) => state.auth.data);
   const navigate = useNavigate();
-
-  
 
   const handleDeletePost = async () => {
     const deleteBlogToast = toast.loading("Deleting Blog Post...");
@@ -63,7 +61,7 @@ function BlogPost({
     <div className="my-5">
       <div className="flex flex-col gap-8">
         {author._id == user._id && (
-          <div className="flex items-center gap-4 rounded-3xl border border-gray-700/60 bg-gray-800/60 p-4 shadow">
+          <div className="flex items-center gap-4 rounded-3xl border border-gray-300 bg-gray-100 p-4 shadow">
             <button
               onClick={() => navigate(`/blog/edit/${slug}`)}
               className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700 md:text-base"
@@ -81,12 +79,12 @@ function BlogPost({
                 "Delete"
               )}
             </button>
-            <p className="text-gray-400">*This button only displays to you.</p>
+            <p className="text-gray-600">*This button only displays to you.</p>
           </div>
         )}
 
         <div className="flex flex-col gap-4">
-          <h1 className="truncat text-wrap text-5xl font-bold text-gray-100">
+          <h1 className="truncat text-wrap text-5xl font-bold text-gray-900">
             {title}
           </h1>
           <p className="flex items-center justify-start gap-2">
@@ -95,14 +93,14 @@ function BlogPost({
               <span className="font-semibold">{visits}</span> views
             </p>
           </p>
-          <p className="text-lg font-semibold text-gray-400">
+          <p className="text-lg font-semibold text-gray-600">
             {formatDate(createdAt)}
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           <div className="col-span-1 md:col-span-2">
-            <div className="mb-5 flex border-b border-t border-gray-700/60">
+            <div className="mb-5 flex border-b border-t border-gray-300">
               <LikeBtn
                 _id={_id}
                 isLiked={isLiked}
@@ -111,15 +109,15 @@ function BlogPost({
               />
               <a href="#comments" className="flex gap-2 p-5">
                 <MdOutlineComment className="h-7 w-7" />
-                <p className="text-lg font-bold text-gray-300">{comments}</p>
+                <p className="text-lg font-bold text-gray-700">{comments}</p>
               </a>
             </div>
             <img
-              className="mx-auto aspect-video rounded-2xl object-cover ring-1 ring-gray-700/60"
+              className="mx-auto aspect-video rounded-2xl object-cover ring-1 ring-gray-300"
               src={featureImage}
               alt={title}
             />
-            <div className="post-content text-gray-300">
+            <div className="post-content mb-10 text-gray-800">
               {parse(marked.parse(content))}
             </div>
             <Comment
@@ -128,44 +126,44 @@ function BlogPost({
           </div>
 
           <div className="col-span-1">
-            <div className="flex flex-col gap-4 rounded-2xl border border-gray-700/60 bg-gray-800/70 p-5">
-              <p className="text-gray-400">Author</p>
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-300 bg-white p-5 shadow-sm">
+              <p className="text-gray-600">Author</p>
               <Link
                 to={`/u/${author.username}`}
                 className="flex items-center gap-4"
               >
                 <img
-                  className="h-12 w-12 rounded-2xl object-cover ring-1 ring-gray-700/60"
+                  className="h-12 w-12 rounded-2xl object-cover ring-1 ring-gray-300"
                   src={author.avatar}
                   alt=""
                 />
                 <div>
-                  <p className="font-bold text-gray-100">{author.name}</p>
-                  <p className="font-light text-gray-400">@{author.username}</p>
+                  <p className="font-bold text-gray-900">{author.name}</p>
+                  <p className="font-light text-gray-600">@{author.username}</p>
                 </div>
               </Link>
               <div>
                 <div className="flex gap-5 text-center">
                   <p>
-                    <span className="font-bold text-gray-100">
+                    <span className="font-bold text-gray-900">
                       {author.posts}
                     </span>
                     <br />
-                    <span className="text-gray-400">Posts</span>
+                    <span className="text-gray-600">Posts</span>
                   </p>
                   <p>
-                    <span className="font-bold text-gray-100">
+                    <span className="font-bold text-gray-900">
                       {author.followers}
                     </span>
                     <br />
-                    <span className="text-gray-400">Followers</span>
+                    <span className="text-gray-600">Followers</span>
                   </p>
                   <p>
-                    <span className="font-bold text-gray-100">
+                    <span className="font-bold text-gray-900">
                       {author.following}
                     </span>
                     <br />
-                    <span className="text-gray-400">Following</span>
+                    <span className="text-gray-600">Following</span>
                   </p>
                 </div>
               </div>

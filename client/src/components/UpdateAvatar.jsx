@@ -73,25 +73,25 @@ function UpdateAvatar({ userData, setUserData }) {
 
   return (
     <>
-      <h2 className="mb-6 text-xl font-semibold text-gray-100">
+      <h2 className="mb-6 text-xl font-semibold text-gray-900">
         Profile Picture
       </h2>
 
       <div className="flex flex-col items-center space-y-4">
         <img
-          className="size-40 rounded-full object-cover ring-4 ring-gray-700/60"
+          className="size-40 rounded-full object-cover ring-4 ring-gray-300/60"
           src={userData?.avatar || "/placeholder-avatar.png"}
           alt="Profile"
         />
 
         <button
           disabled={loading}
-          className={`flex items-center rounded-xl border bg-gray-700/60 px-5 py-3 text-sm font-medium text-gray-100 shadow-sm transition-all duration-300 hover:border-gray-500 hover:bg-gray-600/60 disabled:cursor-not-allowed disabled:opacity-50 md:text-base ${
-            fileError ? "border-red-500/70" : "border-gray-600"
+          className={`flex items-center rounded-xl border bg-gray-100 px-5 py-3 text-sm font-medium text-gray-900 shadow-sm transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50 md:text-base ${
+            fileError ? "border-red-500/70" : "border-gray-300"
           }`}
         >
           {loading ? (
-            <span className="inline-block size-6 animate-spin rounded-full border-4 border-gray-600 border-t-blue-500"></span>
+            <span className="inline-block size-6 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500"></span>
           ) : (
             <>
               <label
@@ -128,7 +128,7 @@ function UpdateAvatar({ userData, setUserData }) {
         </button>
 
         {fileError && (
-          <p className="text-center text-xs font-medium text-red-400">
+          <p className="text-center text-xs font-medium text-red-600">
             {fileError}
           </p>
         )}

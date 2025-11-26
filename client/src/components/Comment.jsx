@@ -71,20 +71,20 @@ function Comment({ _id }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6 rounded-3xl border border-gray-700/60 bg-gray-800/70 p-10">
-      <h1 id="comments" className="text-4xl font-bold text-gray-100">
+    <div className="flex flex-col gap-6 rounded-3xl border border-gray-300 bg-white p-10 shadow-sm">
+      <h1 id="comments" className="text-4xl font-bold text-gray-900">
         Comments
       </h1>
       <form onSubmit={handleSubmit} className="flex items-center gap-5">
         <div className="aspect-square size-10">
           <img
             src={loggedInUser.avatar}
-            className="aspect-square size-10 rounded-full object-cover ring-1 ring-gray-700/60"
+            className="aspect-square size-10 rounded-full object-cover ring-1 ring-gray-300"
             alt="user profile"
           />
         </div>
         <input
-          className="w-full rounded-2xl border border-gray-600 bg-gray-700/60 px-3.5 py-2.5 text-gray-100 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+          className="w-full rounded-2xl border border-gray-300 bg-gray-50 px-3.5 py-2.5 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
           placeholder="enter comment..."
           onChange={(e) => setContent(e.target.value)}
           value={content}
@@ -102,7 +102,7 @@ function Comment({ _id }) {
       </form>
 
       {loading ? (
-        <div className="mx-auto size-12 animate-spin rounded-full border-[5px] border-gray-600 border-b-blue-500"></div>
+        <div className="mx-auto size-12 animate-spin rounded-full border-[5px] border-gray-300 border-b-blue-500"></div>
       ) : (
         <div className="flex flex-col">
           {comments.length > 0 &&

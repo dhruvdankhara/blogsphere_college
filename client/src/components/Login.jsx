@@ -60,28 +60,28 @@ function Login() {
   return (
     <div>
       <Container>
-        <section className="rounded-3xl border border-gray-700/50 bg-gray-800/40 backdrop-blur-sm">
+        <section className="rounded-3xl border border-gray-300 bg-gray-50">
           <div className="mx-auto flex min-h-screen flex-col items-center justify-center px-6 py-12">
-            <div className="w-full max-w-lg rounded-2xl border border-gray-700/60 bg-gray-800/80 shadow-2xl backdrop-blur-xl">
+            <div className="w-full max-w-lg rounded-2xl border border-gray-200 bg-white shadow-2xl">
               <div className="flex flex-col gap-8 p-12">
-                <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-100">
+                <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">
                   Sign in to your account
                 </h1>
                 <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor={"email"}
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       email
                     </label>
                     <input
                       type="email"
                       placeholder="example@mail.com"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.email
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id={"email"}
                       value={email}
@@ -98,7 +98,7 @@ function Login() {
                     {fieldErrors.email && (
                       <p
                         id="email-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.email}
                       </p>
@@ -107,17 +107,17 @@ function Login() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="password"
-                      className="text-base font-medium capitalize text-gray-300"
+                      className="text-base font-medium capitalize text-gray-700"
                     >
                       Password
                     </label>
                     <input
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
                         fieldErrors.password
-                          ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                          : "border-gray-600"
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
+                          : "border-gray-300"
                       }`}
                       id={"password"}
                       value={password}
@@ -137,7 +137,7 @@ function Login() {
                     {fieldErrors.password && (
                       <p
                         id="password-error"
-                        className="text-xs font-medium text-red-400"
+                        className="text-xs font-medium text-red-600"
                       >
                         {fieldErrors.password}
                       </p>
@@ -145,7 +145,7 @@ function Login() {
                   </div>
                   {error && (
                     <div
-                      className="text-wrap rounded-xl border border-red-500/40 bg-red-500/15 px-5 py-3 text-sm text-red-300"
+                      className="text-wrap rounded-xl border border-red-300 bg-red-50 px-5 py-3 text-sm text-red-700"
                       role="alert"
                     >
                       {error}
@@ -162,11 +162,11 @@ function Login() {
                       "Sign in"
                     )}
                   </button>
-                  <p className="text-sm font-light text-gray-400">
-                    Don’t have an account yet?{" "}
+                  <p className="text-sm font-light text-gray-600">
+                    Don&apos;t have an account yet?{" "}
                     <Link
                       to="/register"
-                      className="font-medium text-blue-400 hover:text-blue-300 hover:underline"
+                      className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
                     >
                       Sign up
                     </Link>

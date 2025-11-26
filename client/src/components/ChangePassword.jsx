@@ -98,7 +98,7 @@ function ChangePassword() {
 
   return (
     <>
-      <h2 className="mb-6 text-xl font-semibold text-gray-100">
+      <h2 className="mb-6 text-xl font-semibold text-gray-900">
         Change Password
       </h2>
 
@@ -112,7 +112,7 @@ function ChangePassword() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="currentPassword"
-            className="text-base font-medium text-gray-300"
+            className="text-base font-medium text-gray-700"
           >
             Current Password
           </label>
@@ -120,10 +120,10 @@ function ChangePassword() {
             id="currentPassword"
             type="password"
             placeholder="••••••••"
-            className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+            className={`w-full rounded-xl border bg-white px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
               fieldErrors.currentPassword
                 ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                : "border-gray-600"
+                : "border-gray-300"
             }`}
             value={currentPassword}
             onChange={(e) => {
@@ -143,7 +143,7 @@ function ChangePassword() {
           {fieldErrors.currentPassword && (
             <p
               id="currentPassword-error"
-              className="text-xs font-medium text-red-400"
+              className="text-xs font-medium text-red-600"
             >
               {fieldErrors.currentPassword}
             </p>
@@ -153,7 +153,7 @@ function ChangePassword() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="newPassword"
-            className="text-base font-medium text-gray-300"
+            className="text-base font-medium text-gray-700"
           >
             New Password
           </label>
@@ -161,10 +161,10 @@ function ChangePassword() {
             id="newPassword"
             type="password"
             placeholder="••••••••"
-            className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+            className={`w-full rounded-xl border bg-white px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
               fieldErrors.newPassword
                 ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                : "border-gray-600"
+                : "border-gray-300"
             }`}
             value={newPassword}
             onChange={(e) => {
@@ -190,7 +190,7 @@ function ChangePassword() {
           {fieldErrors.newPassword && (
             <p
               id="newPassword-error"
-              className="text-xs font-medium text-red-400"
+              className="text-xs font-medium text-red-600"
             >
               {fieldErrors.newPassword}
             </p>
@@ -200,7 +200,7 @@ function ChangePassword() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="confirmPassword"
-            className="text-base font-medium text-gray-300"
+            className="text-base font-medium text-gray-700"
           >
             Confirm New Password
           </label>
@@ -208,10 +208,10 @@ function ChangePassword() {
             id="confirmPassword"
             type="password"
             placeholder="••••••••"
-            className={`w-full rounded-xl border bg-gray-700/60 px-4 py-3 text-gray-100 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
+            className={`w-full rounded-xl border bg-white px-4 py-3 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${
               fieldErrors.confirmPassword
                 ? "border-red-500/70 focus:border-red-500 focus:ring-red-500/30"
-                : "border-gray-600"
+                : "border-gray-300"
             }`}
             value={confirmPassword}
             onChange={(e) => {
@@ -231,7 +231,7 @@ function ChangePassword() {
           {fieldErrors.confirmPassword && (
             <p
               id="confirmPassword-error"
-              className="text-xs font-medium text-red-400"
+              className="text-xs font-medium text-red-600"
             >
               {fieldErrors.confirmPassword}
             </p>
@@ -240,7 +240,7 @@ function ChangePassword() {
 
         {error && (
           <div
-            className="rounded-xl border border-red-500/40 bg-red-500/15 px-5 py-3 text-sm text-red-300"
+            className="rounded-xl border border-red-300 bg-red-50 px-5 py-3 text-sm text-red-700"
             role="alert"
           >
             {error}

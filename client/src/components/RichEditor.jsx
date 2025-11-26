@@ -28,8 +28,7 @@ export default function RichEditor({ value, setValue }) {
       Link.configure({ openOnClick: false }),
       Image.configure({
         HTMLAttributes: {
-          class:
-            "rounded-xl max-h-96 object-cover my-4 ring-1 ring-gray-700/50",
+          class: "rounded-xl max-h-96 object-cover my-4 ring-1 ring-gray-300",
         },
       }),
       Placeholder.configure({ placeholder: "Write your story..." }),
@@ -37,7 +36,7 @@ export default function RichEditor({ value, setValue }) {
     content: initialHTMLRef.current,
     editorProps: {
       attributes: {
-        class: "prose prose-invert max-w-none min-h-[320px] focus:outline-none",
+        class: "prose prose-gray max-w-none min-h-[320px] focus:outline-none",
       },
     },
     onUpdate({ editor }) {
@@ -55,7 +54,7 @@ export default function RichEditor({ value, setValue }) {
 
   if (!editor)
     return (
-      <div className="w-full rounded-xl border border-gray-700/60 bg-gray-800/50 p-4 text-gray-500">
+      <div className="w-full rounded-xl border border-gray-300 bg-gray-50 p-4 text-gray-500">
         Loading editor...
       </div>
     );
@@ -87,8 +86,8 @@ export default function RichEditor({ value, setValue }) {
 
   const buttonBase =
     "px-2 py-1 text-xs md:text-sm rounded-lg font-medium transition-colors";
-  const activeBtn = "bg-blue-600/30 text-blue-300";
-  const inactiveBtn = "bg-gray-700/60 text-gray-300 hover:bg-gray-600/60";
+  const activeBtn = "bg-blue-100 text-blue-700";
+  const inactiveBtn = "bg-gray-200 text-gray-700 hover:bg-gray-300";
 
   // eslint-disable-next-line react/prop-types
   const BarButton = ({ cmd, isActive, label }) => (
@@ -104,9 +103,9 @@ export default function RichEditor({ value, setValue }) {
   return (
     <div
       onPaste={handlePaste}
-      className="w-full rounded-xl border border-gray-700/60 bg-gray-800/60 shadow-inner shadow-black/30"
+      className="w-full rounded-xl border border-gray-300 bg-white shadow-sm"
     >
-      <div className="flex flex-wrap gap-1 border-b border-gray-700/60 p-2">
+      <div className="flex flex-wrap gap-1 border-b border-gray-200 p-2">
         <BarButton
           label="B"
           isActive={editor.isActive("bold")}
