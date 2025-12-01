@@ -17,7 +17,7 @@ function EditUser() {
       name: "",
       username: "",
       email: "",
-      gender: null,
+      gender: "",
     }
   );
 
@@ -294,7 +294,7 @@ function EditUser() {
                       setUserData({ ...userData, gender: e.target.value })
                     }
                   >
-                    <option value={null}>-</option>
+                    <option value="">-</option>
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>
                     <option value="OTHER">Other</option>
