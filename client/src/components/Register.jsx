@@ -21,14 +21,28 @@ function Register() {
 
   const validate = () => {
     const errs = {};
-    if (!name.trim()) errs.name = "Name is required";
-    if (!email.trim()) errs.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
+    if (!name.trim()) {
+      errs.name = "Name is required";
+    }
+    if (!email.trim()) {
+      errs.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       errs.email = "Enter a valid email";
-    if (!username.trim()) errs.username = "Username is required";
-    else if (username.trim().length < 3) errs.username = "Username too short";
-    if (!password.trim()) errs.password = "Password is required";
-    else if (password.length < 6) errs.password = "Min 6 characters";
+    }
+    if (!username.trim()) {
+      errs.username = "Username is required";
+    } else if (username.trim().length < 3) {
+      errs.username = "Username too short";
+    } else if (!/^[a-zA-Z0-9_]+$/.test(username.trim())) {
+      errs.username =
+        "Username can only contain letters, numbers, and underscores";
+    }
+
+    if (!password.trim()) {
+      errs.password = "Password is required";
+    } else if (password.length < 6) {
+      errs.password = "Min 6 characters";
+    }
     return errs;
   };
 
