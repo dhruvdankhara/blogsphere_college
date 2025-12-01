@@ -18,10 +18,23 @@ h1 {
   @apply text-gray-900;
 }
 
+h2 {
+  font-size: 25px;
+  font-weight: 500;
+  @apply text-gray-900;
+}
+
 h3 {
   font-size: 20px;
   font-weight: 500;
   @apply text-gray-900;
+}
+
+mark {
+  background-color: #faf594;
+  border-radius: 0.4rem;
+  box-decoration-break: clone;
+  padding: 0.1rem 0.3rem;
 }
 
 .ProseMirror {

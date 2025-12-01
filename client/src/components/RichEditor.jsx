@@ -117,9 +117,26 @@ export default function RichEditor({ value, setValue }) {
           cmd={() => editor.chain().focus().toggleItalic().run()}
         />
         <BarButton
+          label="U"
+          isActive={editor.isActive("underline")}
+          cmd={() =>
+            editor.chain().focus().toggleHighlight({ color: "#ffc078" }).run()
+          }
+        />
+        <BarButton
           label="H1"
           isActive={editor.isActive("heading", { level: 1 })}
           cmd={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        />
+        <BarButton
+          label="H2"
+          isActive={editor.isActive("heading", { level: 2 })}
+          cmd={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        />
+        <BarButton
+          label="H3"
+          isActive={editor.isActive("heading", { level: 3 })}
+          cmd={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         />
         <BarButton
           label=">"
