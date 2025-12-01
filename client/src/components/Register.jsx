@@ -71,8 +71,8 @@ function Register() {
   return (
     <div>
       <Container>
-        <section className="rounded-3xl border border-gray-300 bg-gray-50/80 backdrop-blur-sm">
-          <div className="flex min-h-screen items-center justify-center py-12">
+        <section className="">
+          <div className="my-20 flex items-center justify-center">
             <div className="w-full max-w-lg rounded-2xl border border-gray-300 bg-white shadow-2xl backdrop-blur-xl">
               <div className="flex flex-col gap-8 p-12">
                 <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">

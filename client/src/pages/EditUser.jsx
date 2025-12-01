@@ -17,7 +17,7 @@ function EditUser() {
       name: "",
       username: "",
       email: "",
-      gender: "MALE",
+      gender: null,
     }
   );
 
@@ -289,11 +289,12 @@ function EditUser() {
                     name="gender"
                     id="gender"
                     className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-                    value={userData.gender || "MALE"}
+                    value={userData.gender}
                     onChange={(e) =>
                       setUserData({ ...userData, gender: e.target.value })
                     }
                   >
+                    <option value={null}>-</option>
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>
                     <option value="OTHER">Other</option>

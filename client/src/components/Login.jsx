@@ -60,8 +60,8 @@ function Login() {
   return (
     <div>
       <Container>
-        <section className="rounded-3xl border border-gray-300 bg-gray-50">
-          <div className="mx-auto flex min-h-screen flex-col items-center justify-center px-6 py-12">
+        <section className="mt-20">
+          <div className="mx-auto flex flex-col items-center justify-center px-6">
             <div className="w-full max-w-lg rounded-2xl border border-gray-200 bg-white shadow-2xl">
               <div className="flex flex-col gap-8 p-12">
                 <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">

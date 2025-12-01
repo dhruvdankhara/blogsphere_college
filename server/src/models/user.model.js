@@ -31,7 +31,7 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      default: UserGenderEnum.MALE,
+      default: null,
       enum: AvailableUserGender,
     },
     avatar: {

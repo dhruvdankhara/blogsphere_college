@@ -58,10 +58,10 @@ function Profile() {
   return (
     <div className="my-10">
       <Container>
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
             <div>
-              <div className="sticky top-5 flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-md md:items-start">
+              <div className="sticky top-40 flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 shadow-md md:items-start">
                 <div>
                   <img
                     className="h-24 w-24 rounded-full ring-2 ring-gray-300"
@@ -107,6 +107,7 @@ function Profile() {
               </div>
             </div>
             <div className="col-span-3 grid grid-cols-1 gap-5 md:col-span-2">
+              <h3 className="text-4xl font-bold">Recent Posts</h3>
               <div>
                 {blogs.length > 0 ? (
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
