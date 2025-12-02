@@ -70,6 +70,17 @@ function Comment({ _id }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!isLoggedIn) {
+    return (
+      <div className="flex flex-col gap-6 rounded-3xl border border-gray-300 bg-white p-10 shadow-sm">
+        <h1 id="comments" className="text-4xl font-bold text-gray-900">
+          Comments
+        </h1>
+        <p className="text-gray-600">Please login to post comments.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-6 rounded-3xl border border-gray-300 bg-white p-10 shadow-sm">
       <h1 id="comments" className="text-4xl font-bold text-gray-900">
