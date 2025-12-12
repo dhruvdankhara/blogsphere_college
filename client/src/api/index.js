@@ -90,6 +90,11 @@ export const editPost = async ({ blogId, data }) => {
   return response.data;
 };
 
+export const generateImageApi = async (title) => {
+  const response = await apiClient.post("/blog/generate-image", { title });
+  return response.data;
+};
+
 // comment
 export const createComment = async ({ blogId, content }) => {
   const response = await apiClient.post(`/blog/${blogId}/comment`, { content });

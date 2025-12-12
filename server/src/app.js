@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import { readFileSync } from "fs";
-import path from "path";
 
 const app = express();
 
@@ -23,10 +21,12 @@ app.use(
 );
 
 import errorHandler from "./middlewares/error.middleware.js";
+import upload from "./middlewares/multer.middlewares.js";
+
 import authRoute from "./router/auth.routes.js";
 import blogRoute from "./router/blog.routes.js";
 import userRoute from "./router/user.routes.js";
-import upload from "./middlewares/multer.middlewares.js";
+
 import asyncHandler from "./utils/asyncHandler.js";
 import { ApiResponse } from "./utils/ApiResponse.js";
 import { uploadImage } from "./utils/cloudinary.js";

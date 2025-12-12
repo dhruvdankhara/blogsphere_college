@@ -12,6 +12,7 @@ import {
   likeBlogPost,
   unlikeBlogPost,
   searchBlogPosts,
+  generateBlogImage,
 } from "../controllers/blog.controller.js";
 import upload from "../middlewares/multer.middlewares.js";
 import {
@@ -20,6 +21,8 @@ import {
 } from "../controllers/comment.controller.js";
 
 const router = Router();
+
+router.route("/generate-image").post(generateBlogImage);
 
 router
   .route("/")
